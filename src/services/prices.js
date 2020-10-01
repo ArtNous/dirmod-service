@@ -9,7 +9,9 @@ const getApiUrl = source => `https://api.cambio.today/v1/quotes/${source}/ARS/js
  * @param {string} currency Puede ser USD, BRL, EUR
  */
 module.exports = async (currency = 'USD') => {
-    const response = await axios.get(getApiUrl(currency));
+    const response = await axios.get(getApiUrl(currency), {
+        timeout: 3000
+    });
 
     return String(response.data.result.value.toFixed(2));
 }
