@@ -1,7 +1,7 @@
 const getPrice = require('../services/prices');
 
-test('Obtener valor numérico del precio', () => {
+test('Obtener valor del precio como string', () => {
     return getPrice().then(value => {
-        expect(value).toBeGreaterThan(0);
+        expect(value).toEqual(expect.any(String));
     });
 });
